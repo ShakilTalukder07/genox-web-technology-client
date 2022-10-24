@@ -1,10 +1,9 @@
 import React from 'react';
-import './Faq.css'
 
 const Faq = () => {
     return (
         <div>
-            
+            <h1>this is faq</h1>
         </div>
     );
 };
