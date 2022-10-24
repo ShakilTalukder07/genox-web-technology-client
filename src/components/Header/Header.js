@@ -4,7 +4,7 @@ import { FaFontAwesome, FaGlide,} from "react-icons/fa";
 
 const Header = () => {
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 drop-shadow-md">
             <div className="navbar-start">
                 <Link to='/' className="btn btn-ghost normal-case text-xl"><FaFontAwesome icon={FaGlide}></FaFontAwesome>GenOX</Link>
             </div>
