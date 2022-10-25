@@ -17,10 +17,22 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, provider);
     }
 
+    const gitHubLogIn = provider =>{
+        return signInWithPopup(auth, provider)
+    }
+
     const logOut = () =>{
         return signOut(auth)
     }
 
+    const createUser = (email, password) => {
+        return createUserWithEmailAndPassword(auth, email, password)
+    }
+    
+    const signIn = (email, password) => {
+        return signInWithEmailAndPassword(auth, email, password);
+    }
+    
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             console.log('Inside auth state change', currentUser);
@@ -31,15 +43,8 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
-    const createUser = (email, password) => {
-        return createUserWithEmailAndPassword(auth, email, password)
-    }
 
-    const signIn = (email, password) => {
-        return signInWithEmailAndPassword(auth, email, password);
-    }
-
-    const authInfo = { user, providerLogIn, createUser, signIn, logOut }
+    const authInfo = { user, providerLogIn, createUser, signIn, gitHubLogIn, logOut }
 
     return (
         <div>

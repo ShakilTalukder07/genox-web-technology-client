@@ -1,13 +1,15 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const SignIn = () => {
+    const navigate = useNavigate()
+    const { providerLogIn, gitHubLogIn, signIn } = useContext(AuthContext)
 
-    const { providerLogIn, signIn } = useContext(AuthContext)
+    const gitHubProvider = new GithubAuthProvider();
 
     const googleProvider = new GoogleAuthProvider();
 
@@ -16,11 +18,22 @@ const SignIn = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate('/')
             })
             .catch(error => console.error(error))
     }
 
-    const handleSignIn = (event) => {
+    const handleGitHubSignIn = () =>{
+        gitHubLogIn(gitHubProvider)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            navigate('/');
+        })
+        .catch(error => console.error(error))
+    }
+
+    const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
@@ -29,14 +42,15 @@ const SignIn = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                form.reset(" ");
+                form.reset();
+                navigate('/')
             })
             .catch(error => console.error(error))
     }
 
     return (
         <div className='flex'>
-            <form onSubmit={handleSignIn}>
+            <form onSubmit={handleSubmit}>
                 <div className="hero min-h-screen bg-base-200">
                     <div className="hero-content flex-col lg:flex-row-reverse">
                         <div className="text-center lg:text-left">
@@ -71,7 +85,7 @@ const SignIn = () => {
             <div className="btn-group btn-group-vertical ml-9 mt-10">
                 <button onClick={handleGoogleSignIn} className="btn sm:btn-sm md:btn-md lg:btn-lg mb-4"> <FaGoogle className='mr-2'></FaGoogle> SignIn with Google</button>
 
-                <button className="btn sm:btn-sm md:btn-md lg:btn-lg"><FaGithub className='mr-2'></FaGithub> SignIn With GitHub</button>
+                <button onClick={handleGitHubSignIn} className="btn sm:btn-sm md:btn-md lg:btn-lg"><FaGithub className='mr-2'></FaGithub> SignIn With GitHub</button>
             </div>
         </div>
     );

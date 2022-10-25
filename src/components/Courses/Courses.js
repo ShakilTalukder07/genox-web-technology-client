@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import CourseOption from '../CourseOption/CourseOption';
 import './Courses.css'
 
 const Courses = () => {

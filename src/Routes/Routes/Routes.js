@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import Blog from "../../components/Blog/Blog";
-import CourseOption from "../../components/CourseOption/CourseOption";
 import Courses from "../../components/Courses/Courses";
 import ErrorPage from "../../components/ErrorPage/ErrorPage";
 import Faq from "../../components/FAQ/Faq";

@@ -15,10 +15,12 @@ const handleSubmit = event =>{
     const photoURL = form.photoURL.value;
     const password = form.password.value; 
     console.log(name, email, password, photoURL);
+
     createUser(email,password)
     .then(result => {
         const user = result.user;
         console.log(user);
+        form.reset();
     })
     .catch(error => console.error(error))
 }
@@ -30,7 +32,7 @@ const handleSubmit = event =>{
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">SignUp now!</h1>
-                        <p className="py-6">Please SignUp with you Name, PhotoURL, Email and Password.</p>
+                        <p className="py-6">Please SignUp with your Name, PhotoURL, Email and Password.</p>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
