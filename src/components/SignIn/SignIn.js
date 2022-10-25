@@ -1,7 +1,7 @@
-import { GoogleAuthProvider, signInAnonymously } from 'firebase/auth';
+import { GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
-import { FaFontAwesome, FaGithub, FaGoogle } from 'react-icons/fa';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
@@ -20,22 +20,22 @@ const SignIn = () => {
             .catch(error => console.error(error))
     }
 
-    const handleSignIn = (event) =>{
+    const handleSignIn = (event) => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        signIn(email,password)
-        .then(result => {
-            const user = result.user;
-            console.log(user);
-            form.reset(" ");
-        })
-        .catch(error => console.error(error))
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset(" ");
+            })
+            .catch(error => console.error(error))
     }
 
     return (
-        <>
+        <div className='flex'>
             <form onSubmit={handleSignIn}>
                 <div className="hero min-h-screen bg-base-200">
                     <div className="hero-content flex-col lg:flex-row-reverse">
@@ -68,13 +68,12 @@ const SignIn = () => {
                     </div>
                 </div>
             </form>
-            <div>
-                <button onClick={handleGoogleSignIn} className="btn btn-wide sm:btn-sm md:btn-md lg:btn-lg"> <FaFontAwesome icon={FaGoogle}></FaFontAwesome> SignIn with Google</button>
+            <div className="btn-group btn-group-vertical ml-9 mt-10">
+                <button onClick={handleGoogleSignIn} className="btn sm:btn-sm md:btn-md lg:btn-lg mb-4"> <FaGoogle className='mr-2'></FaGoogle> SignIn with Google</button>
+
+                <button className="btn sm:btn-sm md:btn-md lg:btn-lg"><FaGithub className='mr-2'></FaGithub> SignIn With GitHub</button>
             </div>
-            <div>
-                <button className="btn btn-wide sm:btn-sm md:btn-md lg:btn-lg"> <FaFontAwesome icon={FaGithub}></FaFontAwesome> SignIn With GitHub</button>
-            </div>
-        </>
+        </div>
     );
 };
 

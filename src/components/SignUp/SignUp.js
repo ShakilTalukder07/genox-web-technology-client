@@ -14,12 +14,13 @@ const handleSubmit = event =>{
     const email = form.name.value;
     const photoURL = form.photoURL.value;
     const password = form.password.value; 
-    // console.log(name, email, password, photoURL);
+    console.log(name, email, password, photoURL);
     createUser(email,password)
     .then(result => {
         const user = result.user;
         console.log(user);
     })
+    .catch(error => console.error(error))
 }
 
 
@@ -37,7 +38,7 @@ const handleSubmit = event =>{
                                 <label className="label">
                                     <span className="label-text">Full Name</span>
                                 </label>
-                                <input type="text" name='name' placeholder="Full Name" className="input input-bordered" required />
+                                <input type="text" name='name' placeholder="Full Name" className="input input-bordered" />
                             </div>
 
                             <div className="form-control">

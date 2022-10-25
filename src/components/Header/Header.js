@@ -1,8 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaFontAwesome, FaGlide, } from "react-icons/fa";
+import { FaGlide, FaUser, } from "react-icons/fa";
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Header = () => {
+
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
+
     return (
         <div className="navbar bg-base-100 drop-shadow-md">
             <div className="navbar-start">
@@ -14,23 +25,31 @@ const Header = () => {
                         <li><Link to='/courses'>Courses</Link></li>
                         <li><Link to='/faq'>FAQ</Link></li>
                         <li><Link to='/blog'>Blog</Link></li>
-                        <li><Link to='/signIn'>SignIn</Link></li>
                         <li><Link to='/signUp'>SignUp</Link></li>
+                        <li><Link to='/signIn'>SignIn</Link></li>
+                        <li><button onClick={handleLogOut} to=''>LogOut</button></li>
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost normal-case text-xl"><FaFontAwesome icon={FaGlide}></FaFontAwesome>GenOX</Link>
+                <Link to='/' className="btn btn-ghost normal-case text-xl"> <FaGlide className='h-10 w-10'></FaGlide> GenOX</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                     <li><Link to='/courses'>Courses</Link></li>
                     <li><Link to='/faq'>FAQ</Link></li>
                     <li><Link to='/blog'>Blog</Link></li>
-                    <li><Link to='/signIn'>SignIn</Link></li>
                     <li><Link to='/signUp'>SignUp</Link></li>
+                    <li><Link to='/signIn'>SignIn</Link></li>
+                    <li><button onClick={handleLogOut}  to=''>LogOut</button></li>
                 </ul>
             </div>
-            <div className="navbar-end">
-                <Link className="btn">Get started</Link>
+            <div className="ml-10">
+                <Link> {user?.displayName} </Link>
+                <Link> {user?.photoURL ?
+                    <img className='h-10 ml-2 round' src={user.photoURL} alt="" />
+                    :
+                    <FaUser></FaUser>
+                }
+                </Link>
             </div>
         </div>
     );

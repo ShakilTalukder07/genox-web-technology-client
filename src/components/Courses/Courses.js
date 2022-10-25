@@ -20,7 +20,7 @@ const Courses = () => {
                         </p>)
                     }
                 </div>
-                <div>
+                {/* <div>
                     <div className="card card-compact w-96 bg-base-100 shadow-xl">
                         <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
                         <div className="card-body">
@@ -31,7 +31,7 @@ const Courses = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div >
     );
