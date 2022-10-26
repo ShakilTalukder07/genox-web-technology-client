@@ -1,11 +1,13 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const SignIn = () => {
+    const [error, setError] = useState('')
     const navigate = useNavigate()
     const { providerLogIn, gitHubLogIn, signIn } = useContext(AuthContext)
 
@@ -18,19 +20,27 @@ const SignIn = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+
                 navigate('/')
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error);
+  
+            })
     }
 
-    const handleGitHubSignIn = () =>{
+    const handleGitHubSignIn = () => {
         gitHubLogIn(gitHubProvider)
-        .then(result => {
-            const user = result.user;
-            console.log(user);
-            navigate('/');
-        })
-        .catch(error => console.error(error))
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+
+                navigate('/');
+            })
+            .catch(error => {
+                console.error(error);
+
+            })
     }
 
     const handleSubmit = (event) => {
@@ -43,9 +53,13 @@ const SignIn = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
+                setError('');
                 navigate('/')
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error)
+                setError(error.message);
+            })
     }
 
     return (
@@ -77,13 +91,16 @@ const SignIn = () => {
                                 <div className="form-control mt-6">
                                     <button className="btn btn-primary">Login</button>
                                 </div>
+                                <div>
+                                    {error}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </form>
             <div className="btn-group btn-group-vertical ml-9 mt-10">
-                <button onClick={handleGoogleSignIn} className="btn sm:btn-sm md:btn-md lg:btn-lg mb-4"> <FaGoogle className='mr-2'></FaGoogle> SignIn with Google</button>
+                <button onClick={handleGoogleSignIn} className="btn sm:btn-sm md:btn-md lg:btn-lg mb-4"> <FaGoogle className='mr-1'></FaGoogle>SignIn with Google</button>
 
                 <button onClick={handleGitHubSignIn} className="btn sm:btn-sm md:btn-md lg:btn-lg"><FaGithub className='mr-2'></FaGithub> SignIn With GitHub</button>
             </div>

@@ -8,7 +8,7 @@ const Courses = () => {
     return (
         <div>
             <h1 className='text-3xl font-bold'>We have {courses.length} courses.</h1>
-            <div className='flex'>
+            <div className='flex justify-between'>
                 <div>
                     {
                         courses.map(course => <p className='text-xl font-bold mt-3 '

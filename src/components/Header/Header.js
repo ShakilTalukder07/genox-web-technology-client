@@ -27,6 +27,7 @@ const Header = () => {
                         <li><Link to='/blog'>Blog</Link></li>
                         <li><Link to='/signUp'>SignUp</Link></li>
                         <li><Link to='/signIn'>SignIn</Link></li>
+                        <input type="checkbox" className="toggle" checked />
                         <li><button onClick={handleLogOut} to=''>LogOut</button></li>
                     </ul>
                 </div>
@@ -39,6 +40,7 @@ const Header = () => {
                     <li><Link to='/blog'>Blog</Link></li>
                     <li><Link to='/signUp'>SignUp</Link></li>
                     <li><Link to='/signIn'>SignIn</Link></li>
+                    <input type="checkbox" className="toggle" checked />
                     <li><button onClick={handleLogOut}  to=''>LogOut</button></li>
                 </ul>
             </div>

@@ -1,29 +1,34 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const SignUp = () => {
-
+    const [error, setError] = useState('');
     const { createUser } = useContext(AuthContext);
 
-const handleSubmit = event =>{
-    event.preventDefault();
-    const form = event.target;
-    const name = form.name.value;
-    const email = form.name.value;
-    const photoURL = form.photoURL.value;
-    const password = form.password.value; 
-    console.log(name, email, password, photoURL);
+    const handleSubmit = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const photoURL = form.photoURL.value;
+        const password = form.password.value;
+        // console.log(name, email, password, photoURL);
 
-    createUser(email,password)
-    .then(result => {
-        const user = result.user;
-        console.log(user);
-        form.reset();
-    })
-    .catch(error => console.error(error))
-}
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setError('');
+                form.reset();
+            })
+            .catch(error => {
+                console.error(error);
+                setError(error.message);
+            })
+    }
 
 
     return (
@@ -42,7 +47,6 @@ const handleSubmit = event =>{
                                 </label>
                                 <input type="text" name='name' placeholder="Full Name" className="input input-bordered" />
                             </div>
-
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">PhotoURL</span>
@@ -68,6 +72,9 @@ const handleSubmit = event =>{
                             </label>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">SignUp</button>
+                            </div>
+                            <div>
+                                {error}
                             </div>
                         </div>
                     </div>

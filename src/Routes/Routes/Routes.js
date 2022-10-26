@@ -5,6 +5,7 @@ import ErrorPage from "../../components/ErrorPage/ErrorPage";
 import Faq from "../../components/FAQ/Faq";
 import SignIn from "../../components/SignIn/SignIn";
 import SignUp from "../../components/SignUp/SignUp";
+import CourseOption from '../../components/CourseOption/CourseOption'
 import Main from "../../Layout/Main";
 
 export const routes = createBrowserRouter([
@@ -19,8 +20,10 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/courses/:id',
-                element: <Courses></Courses>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                element: <CourseOption></CourseOption>,
+                loader: async ({ params }) => {
+                    return fetch(`http://localhost:5000/category/${params.id}`)
+                }
             },
             {
                 path: '/faq',
