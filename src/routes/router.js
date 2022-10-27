@@ -1,0 +1,94 @@
+import { createBrowserRouter } from "react-router-dom";
+import Root from "../layout/Root";
+import Categories from "../pages/categories/Categories";
+import Course from "../pages/courses/Course";
+import Courses from "../pages/courses/Courses";
+import About from "../pages/others/About";
+import Blog from "../pages/others/Blog";
+import FAQ from "../pages/others/FAQ";
+import Checkout from "../pages/shared/checkout/Checkout";
+import ErrorPage from "../pages/shared/errorPage/ErrorPage";
+import Home from "../pages/shared/Home";
+import Login from "../pages/shared/loginRegister/Login";
+import Register from "../pages/shared/loginRegister/Register";
+import Profile from "../pages/shared/profile/Profile";
+import PrivateRoute from "./PrivateRoute";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/home",
+        element: <Home />,
+      },
+      {
+        path: "/category/:id",
+        element: <Categories />,
+        loader: ({ params }) =>
+          fetch(` http://localhost:5000/category/${params.id}`),
+      },
+      {
+        path: "/courses",
+        element: <Courses />,
+        loader: () => fetch(" http://localhost:5000/courses"),
+      },
+      {
+        path: "/course/:id",
+        element: (
+          <PrivateRoute>
+            <Course />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/courses/${params.id}`),
+      },
+      {
+        path: "/pay-now",
+        element: (
+          <PrivateRoute>
+            <Checkout />
+          </PrivateRoute>
+        ),
+      },
+    ],
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/about",
+    element: <About />,
+  },
+  {
+    path: "/profile",
+    element: (
+      <PrivateRoute>
+        <Profile />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/blog",
+    element: <Blog />,
+    loader: () => fetch("http://localhost:5000/questions"),
+  },
+  {
+    path: "/faq",
+    element: <FAQ />,
+    loader: () => fetch(" http://localhost:5000/faq"),
+  },
+]);
+
+export default router;
