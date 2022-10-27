@@ -6,7 +6,7 @@ import Category from "../categories/Category";
 const SideNav = () => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    fetch(" http://localhost:5000/course-category")
+    fetch(" https://genox-web-technology-server.vercel.app/course-category")
       .then((res) => res.json())
       .then((data) => setCategories(data));
   }, []);
@@ -14,7 +14,7 @@ const SideNav = () => {
   return (
     <div>
       <h1 className="text-4xl my-7">Course Category</h1>
-      <div className="bg-cyan-100 p-5 h-[100vh]">
+      <div className="bg-orange-100 p-5 h-[100vh]">
         {categories.map((category) => (
           <Category key={category?.id} category={category} />
         ))}
