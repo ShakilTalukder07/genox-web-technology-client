@@ -1,3 +1,4 @@
+
 import React from "react";
 import { FaDollarSign, FaRegHeart, FaStar } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
@@ -16,7 +17,7 @@ const Course = () => {
       <ReactToPdf targetRef={ref} filename={`${_id}.pdf`}>
         {({ toPdf }) => (
           <button
-            className="w-full my-7 py-3 rounded bg-amber-200 text-black hover:text-white hover:bg-blue-500"
+            className="w-full my-7 py-3 rounded bg-red-600 text-black hover:text-white hover:bg-blue-500"
             onClick={toPdf}
           >
             Download
@@ -25,21 +26,8 @@ const Course = () => {
       </ReactToPdf>
       <div
         ref={ref}
-        className="flex flex-col w-full p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-slate-600 text-red-100"
+        className="flex flex-col w-full p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-black text-white"
       >
-        <div className="flex space-x-4">
-          <img
-            alt=""
-            src={author?.img}
-            className="object-cover w-12 h-12 rounded-full shadow bg-gray-500"
-          />
-          <div className="flex flex-col space-y-1">
-            <p className="text-sm font-semibold">{author?.name}</p>
-            <span className="text-xs text-gray-400">
-              {author?.published_date}
-            </span>
-          </div>
-        </div>
         <div>
           <img
             src={image_url}
@@ -100,7 +88,7 @@ const Course = () => {
           </div>
         </div>
         <Link to="/pay-now">
-          <button className="w-full py-3 rounded bg-amber-200 text-black hover:text-white hover:bg-blue-500">
+          <button className="w-full py-3 rounded bg-red-600 text-black hover:text-white hover:bg-blue-500">
             Pay Now
           </button>
         </Link>
@@ -110,3 +98,5 @@ const Course = () => {
 };
 
 export default Course;
+
+

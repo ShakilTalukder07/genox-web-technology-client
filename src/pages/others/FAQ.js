@@ -9,7 +9,6 @@ const FAQ = () => {
     <>
       <Header />
       <div>
-        <h2 className="text-2xl font-semibold my-5 sm:text-4xl">Blog</h2>
         {questions.map((q) => (
           <Question key={q.ide} q={q} />
         ))}

@@ -10,11 +10,11 @@ const Root = () => {
     <>
       <Header />
       <main className="main-container">
-        <div className="sidenav lg:block hidden">
-          <SideNav />
-        </div>
         <div className="main-element">
           <Outlet />
+        </div>
+        <div className="sidenav lg:block hidden">
+          <SideNav />
         </div>
       </main>
       <Footer />

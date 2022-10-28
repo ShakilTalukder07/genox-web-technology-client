@@ -6,7 +6,7 @@ const SingleCourse = ({ course }) => {
   const { _id, title, price, total_view, image_url } = course;
   return (
     <>
-      <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-cyan-900 text-red-100">
+      <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-black text-red-100">
         <div>
           <img
             src={image_url}
@@ -56,7 +56,7 @@ const SingleCourse = ({ course }) => {
           </div>
         </div>
         <Link to={`/course/${_id}`}>
-          <button className=" text-center py-3 bg-amber-200 hover:text-white text-black font-semibold hover:bg-blue-500 w-full rounded">
+          <button className=" text-center py-3 bg-red-600 hover:text-white text-black font-semibold hover:bg-blue-500 w-full rounded">
             Get Premium Now
           </button>
         </Link>

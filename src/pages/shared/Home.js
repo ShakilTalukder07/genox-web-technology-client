@@ -31,7 +31,7 @@ const Home = () => {
                 <Link to="/login">
                   <button
                     type="button"
-                    className="px-8 py-3 m-2 text-lg font-semibold rounded bg-gray-800 hover:bg-gray-700 text-gray-50"
+                    className="px-8 py-3 m-2 text-lg font-semibold rounded bg-black hover:bg-gray-700 text-white"
                   >
                     Login
                   </button>
