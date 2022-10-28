@@ -71,7 +71,7 @@ const Register = () => {
     <>
       <Header />
       <section>
-        <div className="w-full max-w-md p-8 space-y-3 rounded-xl text-gray-100 bg-sky-900 mx-auto my-10">
+        <div className="w-full max-w-md p-8 space-y-3 rounded-xl text-red-100 bg-red-400 mx-auto my-10">
           <h1 className="text-2xl font-bold text-center">Register</h1>
           <p className="text-red-400 text-center">{error}</p>
           <form
@@ -88,7 +88,7 @@ const Register = () => {
                 id="name"
                 placeholder="Full Name"
                 required
-                className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400"
+                className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-red-100 focus:border-violet-400"
               />
             </div>
             <div className="space-y-1 text-sm">
@@ -101,7 +101,7 @@ const Register = () => {
                 id="photoURL"
                 placeholder="photoURL"
                 required
-                className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400"
+                className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-red-100 focus:border-violet-400"
               />
             </div>
             <div className="space-y-1 text-sm">
@@ -114,7 +114,7 @@ const Register = () => {
                 id="email"
                 placeholder="Email"
                 required
-                className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400"
+                className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-red-100 focus:border-violet-400"
               />
             </div>
             <div className="space-y-1 text-sm">
@@ -127,7 +127,7 @@ const Register = () => {
                 id="password"
                 placeholder="********"
                 required
-                className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400"
+                className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-red-100 focus:border-violet-400"
               />
             </div>
             <div className="space-y-1 text-sm">
@@ -140,7 +140,7 @@ const Register = () => {
                 id="confirm"
                 placeholder="********"
                 required
-                className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400"
+                className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-red-100 focus:border-violet-400"
               />
             </div>
             <button className="block w-full p-3 text-center rounded-sm text-gray-900 bg-violet-400">
@@ -187,7 +187,7 @@ const Register = () => {
             <Link
               rel="noopener noreferrer"
               to="/login"
-              className="underline text-gray-100"
+              className="underline text-red-100"
             >
               Login
             </Link>

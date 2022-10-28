@@ -24,6 +24,7 @@ const Login = () => {
       })
       .catch((error) => setError(error.message));
   };
+
   const handleGithub = () => {
     setError("");
     githubLogin()
@@ -52,7 +53,7 @@ const Login = () => {
     <>
       <Header />
       <section>
-        <div className="w-full max-w-md p-8 space-y-3 rounded-xl text-gray-100 bg-sky-900 mx-auto my-10">
+        <div className="w-full max-w-md p-8 space-y-3 rounded-xl text-red-100 bg-red-400 mx-auto my-10">
           <h1 className="text-2xl font-bold text-center">Login</h1>
           <p className="text-red-400 text-center">{error}</p>
           <form
@@ -68,7 +69,7 @@ const Login = () => {
                 name="email"
                 id="email"
                 placeholder="Email"
-                className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400"
+                className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-red-100 focus:border-violet-400"
               />
             </div>
             <div className="space-y-1 text-sm">
@@ -80,7 +81,7 @@ const Login = () => {
                 name="password"
                 id="password"
                 placeholder="Password"
-                className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400"
+                className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-red-100 focus:border-violet-400"
               />
               <div className="flex justify-end text-xs text-gray-400">
                 <Link to="/" rel="noopener noreferrer">
@@ -133,7 +134,7 @@ const Login = () => {
             <Link
               rel="noopener noreferrer"
               to="/register"
-              className="underline text-gray-100"
+              className="underline text-red-100"
             >
               Register
             </Link>

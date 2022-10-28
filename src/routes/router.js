@@ -32,12 +32,12 @@ const router = createBrowserRouter([
         path: "/category/:id",
         element: <Categories />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/${params.id}`),
+          fetch(`https://genox-web-technology-server.vercel.app/${params.id}`),
       },
       {
         path: "/courses",
         element: <Courses />,
-        loader: () => fetch(" http://localhost:5000/courses"),
+        loader: () => fetch("https://genox-web-technology-server.vercel.app/courses"),
       },
       {
         path: "/course/:id",
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/${params.id}`),
+          fetch(`https://genox-web-technology-server.vercel.app/${params.id}`),
       },
       {
         path: "/pay-now",
@@ -82,12 +82,12 @@ const router = createBrowserRouter([
   {
     path: "/blog",
     element: <Blog />,
-    loader: () => fetch("http://localhost:5000/questions"),
+    loader: () => fetch("https://genox-web-technology-server.vercel.app/questions"),
   },
   {
     path: "/faq",
     element: <FAQ />,
-    loader: () => fetch("http://localhost:5000/faq"),
+    loader: () => fetch("https://genox-web-technology-server.vercel.app/faq"),
   },
 ]);
 

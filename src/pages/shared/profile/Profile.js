@@ -16,7 +16,7 @@ const Profile = () => {
             <div className="flex flex-col items-center justify-center">
               <div className="flex flex-wrap gap-x-2 gap-y-2">
                 <div className="relative flex-shrink-0">
-                  <span className="absolute bottom-1 right-1 w-4 h-4 bg-green-600 border rounded-full text-gray-100 border-gray-900"></span>
+                  <span className="absolute bottom-1 right-1 w-4 h-4 bg-green-600 border rounded-full text-red-100 border-gray-900"></span>
                   <img
                     src={user?.photoURL ? user.photoURL : <HiUserCircle />}
                     referrerPolicy="no-referrer"

@@ -6,7 +6,7 @@ const SingleCourse = ({ course }) => {
   const { _id, title, price, total_view, image_url } = course;
   return (
     <>
-      <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-cyan-900 text-gray-100">
+      <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-cyan-900 text-red-100">
         <div>
           <img
             src={image_url}

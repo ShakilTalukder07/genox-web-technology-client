@@ -25,7 +25,7 @@ const Course = () => {
       </ReactToPdf>
       <div
         ref={ref}
-        className="flex flex-col w-full p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-slate-600 text-gray-100"
+        className="flex flex-col w-full p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-slate-600 text-red-100"
       >
         <div className="flex space-x-4">
           <img

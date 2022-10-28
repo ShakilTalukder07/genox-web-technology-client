@@ -6,12 +6,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyB6fPXw2F1ASD2f3RINoXKKsi1TXbtUoOE",
-  authDomain: "course-buddy-education.firebaseapp.com",
-  projectId: "course-buddy-education",
-  storageBucket: "course-buddy-education.appspot.com",
-  messagingSenderId: "445336109859",
-  appId: "1:445336109859:web:3c9fbaee1b9a68df3ac296",
+  apiKey: "AIzaSyDvrX8rmhy8PApTvk4FG6tdWTMhxkEwkGY",
+  authDomain: "genox-web-technology.firebaseapp.com",
+  projectId: "genox-web-technology",
+  storageBucket: "genox-web-technology.appspot.com",
+  messagingSenderId: "824731616693",
+  appId: "1:824731616693:web:3115835b61ce66f8b445fc",
 };
 
 // Initialize Firebase

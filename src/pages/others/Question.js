@@ -3,7 +3,7 @@ import React from "react";
 const Question = ({ q }) => {
   const { question, answer } = q;
   return (
-    <section className="bg-gray-800 text-gray-100">
+    <section className="bg-gray-800 text-red-100">
       <div className="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
         <div className="space-y-4">
           <details className="w-full border rounded-lg">
