@@ -6,7 +6,7 @@ import Category from "../categories/Category";
 const SideNav = () => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    fetch(" https://genox-web-technology-server.vercel.app/course-category")
+    fetch("http://localhost:5000/course-category")
       .then((res) => res.json())
       .then((data) => setCategories(data));
   }, []);
